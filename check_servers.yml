@@ -1,0 +1,21 @@
+---
+- name: Check lab servers
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Show hostname
+      ansible.builtin.debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
+    - name: Show IP address
+      ansible.builtin.debug:
+        msg: "IP: {{ ansible_default_ipv4.address }}"
+
+    - name: Show operating system
+      ansible.builtin.debug:
+        msg: "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Show memory
+      ansible.builtin.debug:
+        msg: "RAM: {{ ansible_memtotal_mb }} MB"
